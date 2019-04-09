@@ -10,22 +10,28 @@
 
 ### 2.1 分支创建/切换
 
-1. ```js
-   git branch hotfix
-   git branch -v
-   git checkout hotfix
-   
-   或者
-   git checkout -b hotfix
-   
-   ```
+```shell
+git branch hotfix
+git branch -v
+git checkout hotfix
+
+或者
+git checkout -b hotfix
+```
 
 ### 2.2 合并分支到master
 
-```java
+```shell
 git checkout master
 git merge hotfix
 git branch -d hotfix
 ```
 
->>>>>>> 
+### 2.3 推送本地分支到远程
+
+```shell
+git push origin feature/test:feature/testt
+```
+
+
+
