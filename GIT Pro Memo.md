@@ -14,10 +14,18 @@
    git branch hotfix
    git branch -v
    git checkout hotfix
+   
+   或者
+   git checkout -b hotfix
+   
    ```
 
+### 2.2 合并分支到master
 
+```java
+git checkout master
+git merge hotfix
+git branch -d hotfix
+```
 
-
-
-testssss
+>>>>>>> 
