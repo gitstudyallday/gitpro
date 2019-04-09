@@ -30,7 +30,7 @@ git branch -d hotfix
 ### 2.3 推送本地分支到远程
 
 ```shell
-git push origin feature/test:feature/testt
+git push origin feature/test
 ```
 
 
