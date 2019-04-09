@@ -31,6 +31,7 @@ git branch -d hotfix
 
 ```shell
 git push origin feature/test
+git push origin feature/test:feature/test
 ```
 
 
