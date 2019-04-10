@@ -59,6 +59,8 @@ git branch --no-merged
 # 查看所有的分支跟踪情况
 git branch -vv
 
+# 查看远程分支
+git branch -a
 
 ```
 
@@ -77,7 +79,7 @@ git merge origin/serverfix
 git push -u origin master
 # 如果需要把本地的分支推送到远程，跟大家共享，请参考2.3
 
-# 跟踪分支
+# 跟踪分支(另起一个新分支)
 git checkout -b [branch] [remotename]/[branch]
 git checkout -b hotfix001 origin/hotfix
 # 也可以使用下面的命令,会在本地自动创建serverfix分支
@@ -88,6 +90,14 @@ git branch -u origin/serverfix
 
 # 删除远程分支
 git push origin --delete serverfix 
+
+# 设置本地某分支跟踪远程某分支
+# 设置本地的serverfix分支跟踪远程的origin/<branch>
+git branch --set-upstream-to=origin/<branch> serverfix
+# 或者
+git branch -u origin/<branch> serverfix
+
+
 ```
 
 ### 2.6 变基
