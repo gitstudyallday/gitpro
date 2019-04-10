@@ -97,6 +97,9 @@ git branch --set-upstream-to=origin/<branch> serverfix
 # 或者
 git branch -u origin/<branch> serverfix
 
+## 删除当前分支与远程分支的关联关系
+git branch --unset-upstream
+
 
 ```
 
