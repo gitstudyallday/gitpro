@@ -62,6 +62,10 @@ git branch -vv
 # 查看远程分支
 git branch -a
 
+# 给分支重命名
+git branch -m oldName newName
+
+
 ```
 
 ### 2.5远程分支
