@@ -134,14 +134,52 @@ git merge experiment
 
 ```
 
+## 3.标签相关
 
+```shell
+# 列出标签
+git tag
+# 查找标签
+git tag -l 'v1.8.5*'
+# 创建标签(annotated)
+git tag -a v1.4 -m "tag v1.4"
+# 查看标签的详细情况
+git show v1.4
 
-## 3.日志输出相关
+# 创建轻量级标签
+git tag v1.4.5
+
+# 后期打标签
+git log --pretty=oneline # 找到需要打标签的提交校验和
+# 然后执行打标签命令
+git tag -a v1.2 -m "tag for xxx" xxx
+
+# 推送标签到remote
+git push origin [tagname]
+# 如果一次想推送多个tag
+git push origin --tags
+
+#本地标签删除
+git tag -d v1.4
+
+#把删除后的标签推送到远程服务器
+git push origin :refs/tags/v1.4
+
+#在特定某个标签的版本下创建分支
+git checkout -b version2 v2.0
+#也就是
+git checkout -b [new_branch_name] [tag_name]
+
+```
+
+## 4.日志输出相关
 
 ```shell
 # 提交历史、各个分支的指向以及项目的分支分叉情况
 git log --oneline --decorate --graph --all
 ```
+
+## 5. git别名
 
 
 
