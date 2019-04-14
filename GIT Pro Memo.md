@@ -2,6 +2,51 @@
 
 ## 1.GIT基础
 
+```shell
+# 设置环境参数
+git config --global user.name "lys"
+git config --global user.email kxxx@gmail.com
+
+#检查配置信息
+git config --list
+# 或者
+git config user.name
+
+# 在现有目录初始化仓库
+git init
+
+# 从远程仓库克隆
+git clone https://github.com/gitstudyallday/gitpro.git
+
+# 把文件加入到暂存区
+git add a.txt
+# 提交到本地仓库
+git commit -m "init"
+
+# 不通过暂存区一次性提交到本地仓库
+git commit -a -m "init"
+
+# 检查当前仓库的状态
+git status
+# 简短版状态
+git status -s
+
+# 已暂存的与未暂存的文件差分
+git diff
+# 已暂存的跟仓库里的文件的区分
+git diff --cached
+git diff --staged
+
+# 移除文件
+# 先删除文件，然后从暂存区删除
+rm a.txt
+git rm a.txt
+# 如果删除之前修改过并且已经放到暂存区域的话，则必须要用强制删除选项 -f
+git rm -f a.txt
+
+
+```
+
 
 
 
@@ -180,6 +225,13 @@ git log --oneline --decorate --graph --all
 ```
 
 ## 5. git别名
+
+```shell
+# 取消暂存文件
+git config --global alias.unstage 'reset HEAD --'
+
+git config --global alias.st status
+```
 
 
 
