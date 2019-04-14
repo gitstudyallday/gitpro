@@ -44,10 +44,36 @@ git rm a.txt
 # 如果删除之前修改过并且已经放到暂存区域的话，则必须要用强制删除选项 -f
 git rm -f a.txt
 
+# 想把文件从 Git 仓库中删除（亦即从暂存区域移除），但仍然希望保留在当前工作目录中
+git rm --cached a.txt
+
+# 文件改名
+git mv a.txt a1.txt
+
+# 撤销提交，重新提交
+git commit --amend
+
+# 取消暂存的文件 unstage
+git add CONTRIBUTING.md
+git reset HEAD CONTRIBUTING.md
+
+# 拉取最近一次提交到版本库的文件到暂存区,不改变工作区
+git reset HEAD  -- <file>
+
+# 撤销对文件的修改
+# discard changes in working directory
+git checkout -- <file>
+
+# 回退版本信息
+# Git必须知道当前版本是哪个版本，在Git中，用HEAD表示当前版本，，上一个版本就是HEAD^，上上一个版本就是HEAD^^，当然往上100个版本写100个^比较容易数不过来，所以写成HEAD~100
+git reset --hard HEAD^
+
+# 也可以查询版本信息
+git log --pretty=oneline
+# 然后回退到指定版本
+git reset --hard 9e13f
 
 ```
-
-
 
 
 
@@ -222,12 +248,64 @@ git checkout -b [new_branch_name] [tag_name]
 ```shell
 # 提交历史、各个分支的指向以及项目的分支分叉情况
 git log --oneline --decorate --graph --all
+
+# 显示每次提交的差异
+git log -p 
+# 最近两次的差异
+git log -p 2
+
+# 查看每次提交的简略信息
+git log --stat
+git log --pretty=oneline
+git log --pretty=format:"%h - %an, %ar : %s"
+
+# 限制输出长度
+git log --since=2.weeks
+
+
+
 ```
+
+**git log --pretty format选项**
+
+| 选项 | 提交对象（commit）的完整哈希字串            |
+| ---- | ------------------------------------------- |
+| %H   | 提交对象（commit）的完整哈希字串            |
+| %h   | 提交对象的简短哈希字串                      |
+| %T   | 树对象（tree）的完整哈希字串                |
+| %t   | 树对象的简短哈希字串                        |
+| %P   | 父对象（parent）的完整哈希字串              |
+| %p   | 父对象的简短哈希字串                        |
+| %an  | 作者（author）的名字                        |
+| %ae  | 作者的电子邮件地址                          |
+| %ad  | 作者修订日期（可以用 --date= 选项定制格式） |
+| %ar  | 作者修订日期，按多久以前的方式显示          |
+| %cn  | 提交者（committer）的名字                   |
+| %ce  | 提交者的电子邮件地址                        |
+| %cd  | 提交日期                                    |
+| %cr  | 提交日期，按多久以前的方式显示              |
+| %s   | 提交说明                                    |
+
+**git log 的常用选项** 
+
+| 选项            | 说明                                                         |
+| --------------- | ------------------------------------------------------------ |
+| -P              | 按补丁格式显示每个更新之间的差异。                           |
+| --stat          | 显示每次更新的文件修改统计信息。                             |
+| --shortstat     | 只显示 --stat 中最后的行数修改添加移除统计。                 |
+| --name-only     | 仅在提交信息后显示已修改的文件清单。                         |
+| --name-status   | 显示新增、修改、删除的文件清单。                             |
+| --abbrev-commit | 仅显示 SHA-1 的前几个字符，而非所有的 40 个字符。            |
+| --relative-date | 使用较短的相对时间显示（比如，“2 weeks ago”）。              |
+| --graph         | 显示 ASCII 图形表示的分支合并历史。                          |
+| --pretty        | 使用其他格式显示历史提交信息。可用的选项包括 oneline，short，full，fuller 和 format（后跟指定格式） |
+
+
 
 ## 5. git别名
 
 ```shell
-# 取消暂存文件
+# 拉取最近一次提交到版本库的文件到暂存区  该操作不影响工作区
 git config --global alias.unstage 'reset HEAD --'
 
 git config --global alias.st status
