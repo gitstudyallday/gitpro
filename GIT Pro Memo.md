@@ -313,3 +313,12 @@ git config --global alias.st status
 
 
 
+### 6.设置执行权限
+
+```shell
+# 设置文件的执行权限等
+git update-index --chmod +x gradlew
+# 查看文件的权限
+git ls-files --stage gradlew
+```
+
