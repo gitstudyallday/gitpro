@@ -205,6 +205,25 @@ git merge experiment
 
 ```
 
+
+
+### 2.7 远程分支改名
+
+```sh
+# 删除远程分支
+git push --delete origin devel
+
+# 重命名本地分支
+git branch -m devel develop
+
+#推送本地分支
+git push origin develop
+```
+
+
+
+
+
 ## 3.标签相关
 
 ```shell
@@ -313,7 +332,7 @@ git config --global alias.st status
 
 
 
-### 6.设置执行权限
+## 6.设置执行权限
 
 ```shell
 # 设置文件的执行权限等
