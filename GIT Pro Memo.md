@@ -362,3 +362,29 @@ git revert OLDER_COMMIT^..NEWER_COMMIT
 git revert -n OLDER_COMMIT^..NEWER_COMMIT
 git commit -m "revert OLDER_COMMIT to NEWER_COMMIT"
 ```
+
+
+
+## 8. Stash
+
+工作只工作到一半，需要处理一个紧急bug，不想commit的时候可以用git stash命令来储藏起来
+
+```shell
+git stash
+```
+
+
+
+需要恢复储藏的修改有两种方式
+
+```shell
+# 查看储藏列表
+1. git stash list 
+
+# 但是恢复后，stash内容并不删除，你需要用git stash drop来删除
+2. git stash apply
+
+# 恢复的同时把stash内容也删了
+3. git stash pop
+```
+
