@@ -281,6 +281,9 @@ git log --pretty=format:"%h - %an, %ar : %s"
 # 限制输出长度
 git log --since=2.weeks
 
+# 列举提交信息
+git log --graph --pretty=oneline --abbrev-commit
+
 
 
 ```
